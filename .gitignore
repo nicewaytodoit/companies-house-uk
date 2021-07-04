@@ -11,8 +11,10 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
-knowhow.md
 npm-debug.log
 *~
 log/
 *.orig
+
+/lib
+know.md
