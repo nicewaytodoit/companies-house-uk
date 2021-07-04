@@ -29,12 +29,12 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/nicewaytodoit/companies-houses-uk.git"
+        "url": "git+https://github.com/nicewaytodoit/companies-house-uk.git"
     },
     "bugs": {
-        "url": "https://github.com/nicewaytodoit/companies-houses-uk/issues"
+        "url": "https://github.com/nicewaytodoit/companies-house-uk/issues"
     },
-    "homepage": "https://github.com/nicewaytodoit/companies-houses-uk#readme",
+    "homepage": "https://github.com/nicewaytodoit/companies-house-uk#readme",
     "devDependencies": {
         "@types/jest": "^26.0.23",
         "jest": "^27.0.6",
