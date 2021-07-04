@@ -17,7 +17,7 @@
         "strictNullChecks": true,
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
-        "sourceMap": true,
+        "sourceMap": false,
         "removeComments": true,
         "moduleResolution": "node",
         "jsx": "react-jsx",

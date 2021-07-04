@@ -1,0 +1,16 @@
+{
+  "name": "spikes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "transform.js",
+  "scripts": {
+    "start": "node transform.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
