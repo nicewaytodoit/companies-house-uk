@@ -6,3 +6,6 @@ export interface INestedDictionary {
 }
 
 export const Hello = (worldName: string) => `Hello World - ${worldName}`;
+
+export * from './dictionaries';
+

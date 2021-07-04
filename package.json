@@ -13,7 +13,7 @@
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "scripts": {
-        "build": "tsc",
+        "build": "rm -rf ./lib/* && tsc",
         "lint": "tslint -p tsconfig.json",
         "format": "prettier --write \"./src/**/*.ts\" ",
         "test": "jest --config jestconfig.json",
