@@ -21,7 +21,10 @@
         "prepublishOnly": "npm test && npm run lint",
         "preversion": "npm run lint",
         "version": "npm run format && git add -A src",
-        "postversion": "git push && git push --tags"
+        "postversion": "git push && git push --tags",
+        "pub": "npm version patch --force && npm publish",
+        "pub-major": "npm version major --force && npm publish",
+        "pub-minor": "npm version minor --force && npm publish"
     },
     "files": [
         "lib/**/*",
