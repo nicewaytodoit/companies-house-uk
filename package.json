@@ -1,6 +1,6 @@
 {
     "name": "companies-house-uk",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "UK Companies House API with Dictionaries for fetching and transforming publicly available data.",
     "author": "Aleksandar Ristevski",
     "license": "MIT",
