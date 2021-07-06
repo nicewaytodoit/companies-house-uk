@@ -9,34 +9,44 @@ export interface INestedDictionary {
 
 export const Hello = (worldName: string) => `Hello World - ${worldName}`;
 
-export const CompaniesHouseAPI = function (apiKey: string) {
-    const API_KEY = apiKey;
+export class CompaniesHouseAPI {
+    private apiKey: string;
 
-    const getHelper = (endPoint: string, query: superagent.SuperAgentRequest | {}, callback: any) => {
+    constructor(apiKey: string){
+        this.apiKey = apiKey
+    }
+
+    private getHelper (endPoint: string, query: superagent.SuperAgentRequest | {}, callback: any) {
         superagent
             .get('https://api.companieshouse.gov.uk/' + endPoint)
             .query(query)
-            .auth(API_KEY, '')
+            .auth(this.apiKey, '')
             .end(callback);
     };
 
-    const getByUrl = (urlPath: string, obj = {}) => new Promise((resolve, reject) => getHelper(urlPath, obj, (err: any, res: any) => (err!==null) ? reject(err) : resolve(res)));
+    private getByUrl (urlPath: string, obj = {}) {
+        return new Promise((resolve, reject) => this.getHelper(urlPath, obj, (err: any, res: any) => (err!==null) ? reject(err) : resolve(res)));
+    }
 
-    const search = (item: any) => getByUrl('search/companies', { q: item });
-    const getCompanyData = (number: string) => getByUrl(`company/${number}`);
-    const getFilingHistory = (number: string) => getByUrl(`company/${number}/filing-history`);
-    const getOfficers = (number: string) => getByUrl(`company/${number}/officers`);
-    const getPersons = (number: string) => getByUrl(`company/${number}/persons-with-significant-control`);
-    const getAddress = (number: string) => getByUrl(`company/${number}/registered-office-address`);
+    public search (item: any) { 
+        this.getByUrl('search/companies', { q: item }); 
+    }
+    public getCompanyData (companyNo: string) { 
+        this.getByUrl(`company/${companyNo}`); 
+    }
+    public getFilingHistory (companyNo: string) { 
+        this.getByUrl(`company/${companyNo}/filing-history`); 
+    }
+    public getOfficers (companyNo: string) { 
+        this.getByUrl(`company/${companyNo}/officers`); 
+    }
+    public getPersons (companyNo: string) { 
+        this.getByUrl(`company/${companyNo}/persons-with-significant-control`); 
+    }
+    public getAddress (companyNo: string) { 
+        this.getByUrl(`company/${companyNo}/registered-office-address`); 
+    }
 
-    return {
-        search,
-        getCompanyData,
-        getFilingHistory,
-        getOfficers,
-        getPersons,
-        getAddress,
-    };
 };
 
 export * from './dictionaries';
