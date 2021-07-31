@@ -7,11 +7,10 @@ const fetchCompanyData = async () => {
     try {
         const companyProfile = await compAPI.getCompanyProfile('12345678');
         return companyProfile;
-    }
-    catch (err) {
+    } catch (err) {
         console.error(err);
     }
-}
+};
 
 describe('# Initial Test', () => {
     it('Should return text with name', () => {

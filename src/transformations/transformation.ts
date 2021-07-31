@@ -1,5 +1,5 @@
-import { isObject } from "./casing";
-import { 
+import { isObject } from './casing';
+import {
     Constants,
     DisqualifiedOfficerDescriptions,
     Errors,
@@ -12,36 +12,33 @@ import {
     OrdersDescriptions,
     Payments,
     PscDescriptions,
-    SearchDescriptionsRaw
+    SearchDescriptionsRaw,
 } from '../dictionaries';
 
-
-export const decorateWithDictonary = (obj: any, rootPath: string, trr: any[]) : any => {
+export const decorateWithDictonary = (obj: any, rootPath: string, trr: any[]): any => {
     if (isObject(obj)) {
         return Object.keys(obj)
-                .map((key) => {
-
-                    const path = [rootPath, key].filter((a)=>!!a).join('.');
-                    if (!Array.isArray(obj[key])) {
-                        const tuple = trr.find((tr) => tr.path === path);
-                        if (!!tuple) {
-                            const title = tuple.array[obj[key]];
-                            if (title!==null) {
-                                return ({ [key]: decorateWithDictonary({ id: obj[key], value: title }, path, trr) }); 
-                            }
+            .map((key) => {
+                const path = [rootPath, key].filter((a) => !!a).join('.');
+                if (!Array.isArray(obj[key])) {
+                    const tuple = trr.find((tr) => tr.path === path);
+                    if (!!tuple) {
+                        const title = tuple.array[obj[key]];
+                        if (title !== null) {
+                            return { [key]: decorateWithDictonary({ id: obj[key], value: title }, path, trr) };
                         }
                     }
-                    return ({ [key]: decorateWithDictonary(obj[key], path, trr) });
-                })
-                .reduce((acc, val) => ({ ...acc, ...val }), {});
-    }
-    else if (Array.isArray(obj)) {
+                }
+                return { [key]: decorateWithDictonary(obj[key], path, trr) };
+            })
+            .reduce((acc, val) => ({ ...acc, ...val }), {});
+    } else if (Array.isArray(obj)) {
         const tuple = trr.find((tr) => tr.path === rootPath);
         return obj.map((item) => {
             if (!!tuple) {
                 const title = tuple.array[item];
-                if (title!==null) {
-                    return decorateWithDictonary({ id: item, value: title }, rootPath + '.obj', trr); 
+                if (title !== null) {
+                    return decorateWithDictonary({ id: item, value: title }, rootPath + '.obj', trr);
                 }
             }
             return decorateWithDictonary(item, rootPath, trr);
@@ -49,7 +46,6 @@ export const decorateWithDictonary = (obj: any, rootPath: string, trr: any[]) : 
     }
     return obj;
 };
-
 
 // getCompanyData(companyNo: string)
 export const companyProfileDecorator = [
@@ -60,13 +56,17 @@ export const companyProfileDecorator = [
     { type: 'array', path: 'sic_codes', field: null, array: Constants.SicDescriptions },
     { type: 'string', path: 'type', field: null, array: Constants.CompanyType },
     { type: 'string', path: 'foreign_company_details.accounting_requirement.foreign_account_type', field: null, array: Constants.ForeignAccountType },
-    { type: 'string', path: 'foreign_company_details.accounting_requirement.terms_of_account_publication', field: null, array: Constants.TermsOfAccountPublication },
+    {
+        type: 'string',
+        path: 'foreign_company_details.accounting_requirement.terms_of_account_publication',
+        field: null,
+        array: Constants.TermsOfAccountPublication,
+    },
 ];
 
 // search(item: any)
 
 // getFilingHistory(companyNo: string)
-
 
 // getOfficers(companyNo: string)
 // getPersons(companyNo: string)

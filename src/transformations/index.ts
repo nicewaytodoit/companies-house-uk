@@ -1,7 +1,4 @@
 import * as Casing from './casing';
-import * as Transformation from './transformation' 
+import * as Transformation from './transformation';
 
-export {
-    Casing,
-    Transformation,
-};
+export { Casing, Transformation };
