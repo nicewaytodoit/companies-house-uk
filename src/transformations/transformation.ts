@@ -1,5 +1,5 @@
 import { isObject } from "./casing";
-const { 
+import { 
     Constants,
     DisqualifiedOfficerDescriptions,
     Errors,
@@ -13,7 +13,7 @@ const {
     Payments,
     PscDescriptions,
     SearchDescriptionsRaw
-} = require('../dictionaries');
+} from '../dictionaries';
 
 
 export const decorateWithDictonary = (obj: any, rootPath: string, trr: any[]) : any => {
