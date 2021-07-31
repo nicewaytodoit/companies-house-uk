@@ -29,23 +29,24 @@ export class CompaniesHouseAPI {
     }
 
     public search(item: any) {
-        this.getByUrl('search/companies', { q: item });
+        return this.getByUrl('search/companies', { q: item });
     }
-    public getCompanyData(companyNo: string) {
-        this.getByUrl(`company/${companyNo}`);
+    public getCompanyProfile(companyNo: string) {
+        return this.getByUrl(`company/${companyNo}`);
     }
     public getFilingHistory(companyNo: string) {
-        this.getByUrl(`company/${companyNo}/filing-history`);
+        return this.getByUrl(`company/${companyNo}/filing-history`);
     }
     public getOfficers(companyNo: string) {
-        this.getByUrl(`company/${companyNo}/officers`);
+        return this.getByUrl(`company/${companyNo}/officers`);
     }
     public getPersons(companyNo: string) {
-        this.getByUrl(`company/${companyNo}/persons-with-significant-control`);
+        return this.getByUrl(`company/${companyNo}/persons-with-significant-control`);
     }
     public getAddress(companyNo: string) {
-        this.getByUrl(`company/${companyNo}/registered-office-address`);
+        return this.getByUrl(`company/${companyNo}/registered-office-address`);
     }
 }
 
 export * from './dictionaries';
+export * from './transformations';
