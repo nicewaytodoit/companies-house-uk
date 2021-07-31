@@ -16,7 +16,7 @@ const {
 } = require('../dictionaries');
 
 
-export const decorateWithDictonary = (obj: any, rootPath = '', trr: any[]) : any => {
+export const decorateWithDictonary = (obj: any, rootPath: string, trr: any[]) : any => {
     if (isObject(obj)) {
         return Object.keys(obj)
                 .map((key) => {
@@ -50,11 +50,6 @@ export const decorateWithDictonary = (obj: any, rootPath = '', trr: any[]) : any
     return obj;
 };
 
-// search(item: any)
-// getFilingHistory(companyNo: string)
-// getOfficers(companyNo: string)
-// getPersons(companyNo: string)
-// getAddress(companyNo: string)
 
 // getCompanyData(companyNo: string)
 export const companyProfileDecorator = [
@@ -68,3 +63,11 @@ export const companyProfileDecorator = [
     { type: 'string', path: 'foreign_company_details.accounting_requirement.terms_of_account_publication', field: null, array: Constants.TermsOfAccountPublication },
 ];
 
+// search(item: any)
+
+// getFilingHistory(companyNo: string)
+
+
+// getOfficers(companyNo: string)
+// getPersons(companyNo: string)
+// getAddress(companyNo: string)
