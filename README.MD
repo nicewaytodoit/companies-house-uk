@@ -1,7 +1,6 @@
 # UK Companies house API
 
-Hi, please ***DO NOT DOWNLOAD*** this package is not ready yet, and it won't be until version 0.1.0.
-Currently, I can work on this project for only a few hours on Sundays.
+This package will allow you to retrieve UK Companies House API data, with ability to have more readable keys and enumerated values. 
 
 ## Installation instructions
 Run 
