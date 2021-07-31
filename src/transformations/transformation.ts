@@ -65,9 +65,32 @@ export const companyProfileDecorator = [
 ];
 
 // search(item: any)
+export const companySearchDecorator = [
+    { type: 'string', path: 'items.company_status', array: Constants.CompanyStatus },
+    { type: 'string', path: 'items.company_type', array: Constants.CompanySummary },
+    { type: 'string', path: 'items.natures_of_control', array: SearchDescriptionsRaw.CompanySearchDescription },
+];
 
 // getFilingHistory(companyNo: string)
+export const filingHistoryDecorator = [
+    { type: 'string', path: 'items.annotations.description', array: FilingHistoryDescriptions.Description },
+    { type: 'string', path: 'items.associated_filings.description', array: FilingHistoryDescriptions.Description },
+    { type: 'string', path: 'items.description', array: FilingHistoryDescriptions.Description },
+    { type: 'string', path: 'items.resolutions.description', array: FilingHistoryDescriptions.Description },
+];
 
 // getOfficers(companyNo: string)
+export const officersDecorator = [
+    { type: 'string', path: 'identification.identification_type', array: Constants.IdentificationType },
+    { type: 'string', path: 'officer_role', array: Constants.OfficerRole },
+];
+
 // getPersons(companyNo: string)
+export const personsDecorator = [
+    { type: 'string', path: 'items.description', array: PscDescriptions.SuperSecureDescription },
+    { type: 'string', path: 'items.natures_of_control', array: PscDescriptions.Description },
+];
+
+
 // getAddress(companyNo: string)
+// None
