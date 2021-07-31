@@ -91,6 +91,5 @@ export const personsDecorator = [
     { type: 'string', path: 'items.natures_of_control', array: PscDescriptions.Description },
 ];
 
-
 // getAddress(companyNo: string)
 // None
